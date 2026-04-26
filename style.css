@@ -1,0 +1,199 @@
+
+/* RESET */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #75faff, #7ed0ff, #c4f1fa);
+    background-size: 300% 300%;
+    animation: gradientMove 8s infinite alternate;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes gradientMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+/* CENTER CONTENT */
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* HERO SECTION */
+.hero {
+    margin-top: 60px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    color: white;
+    font-size: 18px;
+}
+
+/* PROFILE CARD */
+.profile-card {
+    margin-top: 30px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 25px;
+    width: 300px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+}
+
+.main-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff4b5c;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff2e44;
+}
+
+/* FLOATING EMOJIS */
+.emoji {
+    position: absolute;
+    font-size: 25px;
+    animation: floatUp 6s linear infinite;
+}
+
+.emoji:nth-child(1) { left: 10%; }
+.emoji:nth-child(2) { left: 50%; }
+.emoji:nth-child(3) { left: 80%; }
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+/* ========================= */
+/* 🎁 SURPRISE BOX */
+/* ========================= */
+
+.surprise-container {
+    margin-top: 40px;
+}
+
+/* HIDE CHECKBOX */
+#openBox {
+    display: none;
+}
+
+/* BUTTON */
+.gift-box {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #ff4b5c;
+    color: white;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gift-box:hover {
+    background: #ff2e44;
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+.surprise-content {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SHOW */
+#openBox:checked ~ .surprise-content {
+    display: block;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* LINK BOX */
+.link-box {
+    width: 90%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* ========================= */
+/* 🌙 DARK MODE */
+/* ========================= */
+
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* HIDE CHECKBOX */
+#toggle {
+    display: none;
+}
+
+/* DARK MODE ACTIVE */
+#toggle:checked ~ .content {
+    background: #121212;
+    color: white;
+}
+
+/* DARK CARD */
+#toggle:checked ~ .content .profile-card {
+    background: rgba(0,0,0,0.6);
+}
+
+/* DARK SURPRISE */
+#toggle:checked ~ .content .surprise-content {
+    background: #1e1e1e;
+    color: white;
+}
+
+/* DARK BUTTON */
+#toggle:checked ~ .content .btn {
+    background: #ff758c;
+}
